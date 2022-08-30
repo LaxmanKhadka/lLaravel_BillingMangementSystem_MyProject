@@ -1,0 +1,5 @@
+@include('components.head')
+@include('components.preloader')
+@include('components.navTop')
+@include('components.body')
+@include('components.footer')     
