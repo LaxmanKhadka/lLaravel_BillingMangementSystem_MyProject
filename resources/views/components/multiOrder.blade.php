@@ -80,10 +80,10 @@
 
                                 <div class="col-sm-2">
 
-                                    <select name="productName" class="Product_name">
+                                    <select name="product_id[]" class="Product_name">
                                         <option class="product_append" value="">Select Product </option>
                                         @foreach ($product as $i => $p)
-                                            <option class="product_rm" value="{{ $p->productName }}"
+                                            <option class="product_rm" value="{{ $p->id }}"
                                                 data-productPrice="{{ $p->productPrice }}"> {{ $p->productName }}
                                             </option>
                                         @endforeach
@@ -91,16 +91,16 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input type="number" class="form-control productQuantity" name="productQuantity"
+                                    <input type="number" class="form-control productQuantity" name="product_qty[]"
                                         placeholder="Quantity" />
                                 </div>
 
                                 <div class="col-sm-3">
-                                    <input type="text" class="form-control productPrice" name="productPrice"
+                                    <input type="text" class="form-control productPrice" name="product_price[]"
                                         placeholder="Product Price" />
                                 </div>
                                 <div class="col-sm-3">
-                                    <input type="text" class="form-control totalPrice" name="totalAmount"
+                                    <input type="text" class="form-control totalPrice" name="total_amt[]"
                                         placeholder="Total Price" />
 
                                 </div>
