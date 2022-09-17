@@ -19,7 +19,7 @@
                                 <div class="col-sm-12">
                                     <label for="name" class="text-end control-label col-form-label">Name
                                     </label>
-                                    <input type="text" class="form-control require" id="Name" name="Name"
+                                    <input type="text" class="form-control require" id="name" name="Name"
                                         placeholder="" />
                                 </div>
                                 <span class="req" style="color:red"></span>
@@ -39,7 +39,7 @@
 
                                 <div class="col-sm-12">
                                     <label for="Phone" class="text-end control-label col-form-label">Phone</label>
-                                    <input type="number" class="form-control require" id="Product_price" name="Phone"
+                                    <input type="number" class="form-control require" id="phone" name="Phone"
                                         placeholder="" />
                                 </div>
                                 <span class="req" style="color:red"> </span>
@@ -109,11 +109,11 @@
 
                                 <div class="card-body"style="float:right">
                                     <button type="button" class="btn btn-primary btn-lg btn-outline-success"
-                                    name="addCustomer" id="addCustomer">
-                                    Add
-                                </button>
+                                        name="addCustomer" id="addCustomer">
+                                        Add
+                                    </button>
+                                </div>
                             </div>
-                        </div>
                             <!-- Customer end -->
                         </div>
                     </div>
@@ -159,8 +159,27 @@
             $("#email").css("border", "1px solid gray");
 
         }
+        // check=0 for phone
+        var v = $("#phone").val();
 
+        if (!validatePhone(v)) {
+            check = 1;
+            $("#phone").css("border", "1px solid red");
+        } else {
+            $("#phone").css("border", "1px solid gray");
 
+        }
+        // check for name validation
+        var b = $("#name").val();
+
+        if (!nameValidate(b)) {
+            check = 1;
+            $("#name").css("border", "1px solid red");
+        } else {
+            $("#name").css("border", "1px solid gray");
+        }
+
+        // true condition
         if (check == 0) {
             var data = $("#buyerStore").serialize();
             // data.forEach((field) => {
@@ -172,10 +191,8 @@
             console.log(data);
 
 
-
             $("#productModelClose").click();
-            alert("New Customer Added Sucessfully !");
-
+            toastr.success("New customer added successfully !");
             ajax("/customerStore", data, "result", "post", productrefresh);
 
         }

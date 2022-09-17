@@ -114,8 +114,8 @@
         console.log(data);
 
         // toastr.success("Your New Product added","Insertion Sucessfull!");
-        $("#productModelClose").click();
-
+        $("#productModelClose2").click();
+        toastr.success('Deleted Successsfully !');
         ajax("/productDeleted", data, "result", "post", productrefresh);
 
 

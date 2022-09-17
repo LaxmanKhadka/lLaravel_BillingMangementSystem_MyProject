@@ -114,11 +114,10 @@
         ajax("/customerDetails", data, "pageload", "get");
     }
     $("#Edit").on("click", function() {
-
+        // console.log("laxman");
         var check = 0;
 
-        $(".require").each(function(index, value) {
-            console.log($(this).val());
+        $("#customerEdit .require").each(function(index, value) {
 
             if ($(this).val() == "") {
                 $(this).css("border", "1px solid red");
@@ -133,24 +132,24 @@
             }
         });
         // check =0
-        var v = $("#email").val();
+        // var v = $("#email").val();
 
-        if (!validateEmail(v)) {
-            check = 1;
-            $("#email").css("border", "1px solid red");
-        } else {
-            $("#email").css("border", "1px solid gray");
+        // if (!validateEmail(v)) {
+        //     check = 1;
+        //     $("#email").css("border", "1px solid red");
+        // } else {
+        //     $("#email").css("border", "1px solid gray");
 
-        }
+        // }
 
         if (check == 0) {
             var data = $("#customerEdit").serialize();
 
             console.log(data);
 
-            $("#productModelClose").click();
+            $("#productModelClose1").click();
 
-            alert("New Customer Edited Sucessfully !");
+            toastr.success("Customer edited successfully !");
 
             ajax("/customerEdited", data, "result", "post", productreferesh);
         }

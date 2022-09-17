@@ -49,7 +49,7 @@
                                     <label for="productName" class=" text-end control-label col-form-label">Product
                                         Name
                                     </label>
-                                    <input type="text" name="productName" class="form-control"
+                                    <input type="text" name="productName" class="form-control require"
                                         value="{{ $p->productName }}" id="ProductName" placeholder="Product name...." />
                                 </div>
                             </div>
@@ -57,7 +57,7 @@
                                 <div class="col-sm-12">
                                     <label for="productQuantity" class=" text-end control-label col-form-label">Product
                                         Code </label>
-                                    <input type="text" class="form-control" id="productCode"
+                                    <input type="text" class="form-control require" id="productCode"
                                         value="{{ $p->productCode }}" name="productCode" placeholder="product code" />
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                                 <div class="col-sm-12">
                                     <label for="productQuantity" class=" text-end control-label col-form-label">Enter
                                         product Quantity</label>
-                                    <input type="number" class="form-control" id="productQuantity"
+                                    <input type="number" class="form-control require" id="productQuantity"
                                         name="productQuantity" value="{{ $p->productQuantity }}" placeholder="" />
                                 </div>
                             </div>
@@ -73,15 +73,16 @@
                                 <div class="col-sm-12">
                                     <label for="productPrice" class=" text-end control-label col-form-label">Product
                                         Price </label>
-                                    <input type="number" class="form-control" id="productPrice" name="productPrice"
-                                        value="{{ $p->productPrice }}" placeholder="0.00" />
+                                    <input type="number" class="form-control require" id="productPrice"
+                                        name="productPrice" value="{{ $p->productPrice }}" placeholder="0.00" />
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label for="cono1" class=" text-end control-label col-form-label">Product
                                         Description</label>
-                                    <textarea class="form-control" id="productDescription" name="productDescription" value="{{ $p->productDescription }}">{{ $p->productDescription }}</textarea>
+                                    <textarea class="form-control require" id="productDescription" name="productDescription"
+                                        value="{{ $p->productDescription }}">{{ $p->productDescription }}</textarea>
                                 </div>
                             </div>
                             <div class="border-top">
@@ -106,7 +107,6 @@
         ajax("/productDetails", data, "pageload", "get");
     }
 
-
     $("#editProduct").on("click", function() {
 
 
@@ -115,8 +115,8 @@
         console.log(data);
 
         // toastr.success("Your New Product added","Insertion Sucessfull!");
-
-        $("#productModelClose").click();
+        $("#productModelClose1").click();
+        toastr.success("Product Edited Successfully !");
         ajax("/productEdited", data, "result", "post", productrefresh);
 
     });

@@ -231,7 +231,7 @@
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                    id="productModelClose">Close</button>
+                    id="productModelClose1">Close</button>
             </div>
 
         </div>
@@ -256,7 +256,7 @@
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                    id="productModelClose">Close</button>
+                    id="productModelClose2">Close</button>
             </div>
 
         </div>
@@ -295,6 +295,7 @@
     ajax("/AddNewProduct", data, "mm", "get");
 
     function export2(url) {
+        toastr.success("Generating reports of products");
         window.open("/csvExport?type=" + url, "_blank");
     }
 </script>

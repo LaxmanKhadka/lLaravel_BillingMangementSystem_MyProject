@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'productName', 'productQuantity', 'productPrice', 'Customer_select', 'customerPhone', 'shippingAddress1', 'shippingAddress2', 'State', 'City', 'Country', 'totalAmount'
-    ];
+    protected $guarded = [];
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'products_order', 'order_id', 'product_id')
+            ->withPivot(['totalAmount', 'productQuantity']);
+    }
 }
 
 

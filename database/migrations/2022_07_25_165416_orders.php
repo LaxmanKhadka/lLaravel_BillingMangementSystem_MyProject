@@ -15,11 +15,8 @@ return new class extends Migration
     {
         schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('productName');
-            $table->string('productQuantity');
-            $table->string('productPrice');
             $table->string('Customer_select');
-            $table->string('customerEmail');
+            // $table->string('customerEmail');
             $table->string('customerPhone');
             $table->string('shippingAddress1');
             $table->string('shippingAddress2');
@@ -27,14 +24,14 @@ return new class extends Migration
             $table->string('City');
             $table->string('Country');
             $table->string('subtotalAmount');
-            $table->string('taxAmount');
-            $table->string('discountAmount');
+            $table->string('taxAmount')->nullable();
+            $table->string('discountAmount')->nullable();
             $table->string('totalAmount');
-            $table->string('paid_by');
-            $table->string('Paid_Ref_No');
-            $table->string('bankName');
-            $table->string('Invoice_no');
-            $table->string('remarks');
+            $table->string('paid_by')->nullable();
+            $table->string('Paid_Ref_No')->nullable();
+            $table->string('bankName')->nullable();
+            $table->string('Invoice_no')->nullable();
+            $table->string('remarks')->nullable();
             $table->timestamps();
         });
     }

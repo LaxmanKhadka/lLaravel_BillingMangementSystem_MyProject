@@ -1,3 +1,5 @@
+const { toSafeInteger } = require("lodash");
+
 var rep;
 
 function ajax(url,data,id=false, post_type='get', callback=false){
@@ -32,7 +34,9 @@ function ajax(url,data,id=false, post_type='get', callback=false){
                       },
                       error:function(e)
                       {
-                          console.log(e);
+                          if(e.responseJSON.message) {
+                            toastr.error(e.responseJSON.message)
+                          }
                       }
                   });
   }
@@ -53,6 +57,18 @@ function ajax(url,data,id=false, post_type='get', callback=false){
   else {
       return false;
   }
+ 
+}
+function isPositiveNumber(num){
+  return num > 0;
+}
 
-  
+function nameValidate(b) {
+  var regex = /^[A-Z A-z]+$/;
+  if(regex.test(b)){
+    return true;
+  }
+  else{
+    return false;
+  }
 }

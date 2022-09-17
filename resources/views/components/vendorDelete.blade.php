@@ -122,63 +122,58 @@
 
     $("#Delete").on("click", function() {
 
-        var check = 0;
+        // var check = 0;
 
-        $(".require").each(function(index, value) {
-            console.log($(this).val());
+        // $(".require").each(function(index, value) {
+        //     console.log($(this).val());
 
-            if ($(this).val() == "") {
-                $(this).css("border", "1px solid red");
+        //     if ($(this).val() == "") {
+        //         $(this).css("border", "1px solid red");
 
-                // $(".req").html("This filed required !");
+        //         // $(".req").html("This filed required !");
 
-                check = 1;
+        //         check = 1;
 
-            } else {
-                $(this).css("border", "1px solid gray");
-                // $(".req").html("");
-            }
-        });
+        //     } else {
+        //         $(this).css("border", "1px solid gray");
+        //         // $(".req").html("");
+        //     }
+        // });
 
-        // check =0 for email
-        var v = $("#email").val();
+        // // check =0 for email
+        // var v = $("#email").val();
 
-        if (!validateEmail(v)) {
-            check = 1;
-            $("#email").css("border", "1px solid red");
-        } else {
-            $("#email").css("border", "1px solid gray");
+        // if (!validateEmail(v)) {
+        //     check = 1;
+        //     $("#email").css("border", "1px solid red");
+        // } else {
+        //     $("#email").css("border", "1px solid gray");
 
-        }
-        // check=0 for phone
-        var v = $("#phone").val();
+        // }
+        // // check=0 for phone
+        // var v = $("#phone").val();
 
-        if (!validatePhone(v)) {
-            check = 1;
-            $("#phone").css("border", "1px solid red");
-        } else {
-            $("#phone").css("border", "1px solid gray");
+        // if (!validatePhone(v)) {
+        //     check = 1;
+        //     $("#phone").css("border", "1px solid red");
+        // } else {
+        //     $("#phone").css("border", "1px solid gray");
 
-        }
+        // }
 
-        // option validation
-        //      
-
-
-        if (check == 0) {
-            var data = $("#vendorDelete").serialize();
-
-            console.log(data);
-
-            alert("New Vendor Deleted Sucessfully !");
+        // // option validation
+        // //     
 
 
-            $("#productModelClose").click();
+        var data = $("#vendorDelete").serialize();
 
-            alert("New Vendor Deleted Sucessfully !");
+        console.log(data);
 
-            ajax("/vendorDeleted", data, "result", "post", productrefresh);
+        $("#productModelClose2").click();
+        toastr.success("Vendor deleted successflly !");
 
-        }
+        ajax("/vendorDeleted", data, "result", "post", productrefresh);
+
+
     });
 </script>

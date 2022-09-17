@@ -117,29 +117,28 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="append_div">
+
+                    </div>
+                    <div class="form-group row">
+                        <div style="float:right;">
+                            <button type="button" id="addOrder" name="button"
+                                class="btn btn-primary btn-lg btn-outline-success">
+                                Order
+                            </button>
+                        </div>
+                    </div>
+
+
+                </form>
             </div>
-            <div class="append_div">
-
-            </div>
-            <div class="form-group row">
-                <div style="float:right;">
-                    <button type="button" id="addOrder" name="button"
-                        class="btn btn-primary btn-lg btn-outline-success">
-                        Order
-                    </button>
-                </div>
-            </div>
-
-
-            <!-- summery end -->
-
-            </form>
         </div>
     </div>
 </div>
-</div>
 <script>
     var productrefresh = function() {
+        $(".modal.show").modal('hide');
         ajax("/createNewInvoice", data, "pageload", "get");
     }
     $("#addOrder").on("click", function() {
@@ -147,7 +146,7 @@
         // data=JSON.stringify(data);
         console.log(data);
         // toastr.success("Your New Product added","Insertion Sucessfull!");             
-        $("#productModelClose").click();
+
         ajax("/orderStore", data, "result", "post", productrefresh);
     });
     // Customer data selected automatic
@@ -171,7 +170,7 @@
     });
 
     // clone of product for multiple times
-    $(document).off('.append').on('click', '.append', function() {
+    $(document).off('click', '.append').on('click', '.append', function() {
 
         var a = $('#append_clone').clone();
         $('.append_div').append(a);
@@ -181,7 +180,7 @@
 
     });
 
-    $(document).off('.append_x').on('click', '.append_x', function() {
+    $(document).off('click', '.append_x').on('click', '.append_x', function() {
 
         $(this).parent().parent().remove();
 

@@ -95,7 +95,7 @@
                  <li class="sidebar-item" onClick='ajax("/report","")'>
                      <a class="sidebar-link  waves-effect waves-dark" href="javascript:void(0)"
                          aria-expanded="false"><i class="mdi mdi-alert" title="Sales Report"></i><span
-                             class="hide-menu">Sales Reports </span></a>
+                             class="hide-menu">Reports </span></a>
 
                  </li>
 

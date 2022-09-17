@@ -19,13 +19,15 @@
                                     <label for="lname" class="text-end control-label col-form-label">Product Category
                                     </label>
 
-                                    <select name="productCategory" id="productCategory">
+                                    <select name="productCategory" id="productCategory" class="require">
+                                        <option value=""> Select Category</option>
                                         <option value="FMG Product"> FMG product </option>
                                         <option value="Restro Product"> Restro product </option>
                                         <option value="Sanitary Product"> Sanitary product </option>
                                         <option value="Vegetables Product"> Vegetables product </option>
                                     </select>
                                 </div>
+                                <span class="req" style="color:red"></span>
                             </div>
 
                             <div class="form-group row">
@@ -34,13 +36,14 @@
                                     <label for="lname" class=" text-end control-label col-form-label">Vendor Category
                                     </label>
 
-                                    <select name="vendorCategory" id="vendorCategory">
-                                        <option value="0"> Select Vendor </option>
+                                    <select name="vendorCategory" id="vendorCategory" class="require">
+                                        <option value=""> Select Vendor </option>
                                         @foreach ($vendor as $i => $v)
                                             <option value="{{ $v->Name }}"> {{ $v->Name }} </option>
                                         @endforeach
                                     </select>
                                 </div>
+                                <span class="req" style="color:red"></span>
                             </div>
 
 
@@ -49,9 +52,10 @@
                                 <div class="col-sm-12">
                                     <label for="productName" class=" text-end control-label col-form-label">Product Name
                                     </label>
-                                    <input type="text" name="productName" class="form-control" id="ProductName"
-                                        placeholder="Product name...." />
+                                    <input type="text" name="productName" class="form-control require"
+                                        id="ProductName" placeholder="Product name...." />
                                 </div>
+                                <span class="req" style="color:red"></span>
                             </div>
 
                             <div class="form-group row">
@@ -59,9 +63,10 @@
                                 <div class="col-sm-12">
                                     <label for="productQuantity" class=" text-end control-label col-form-label">Product
                                         Code </label>
-                                    <input type="text" class="form-control" id="productCode" name="productCode"
-                                        placeholder="product code" />
+                                    <input type="text" class="form-control require" id="productCode"
+                                        name="productCode" placeholder="product code" />
                                 </div>
+                                <span class="req" style="color:red"></span>
                             </div>
 
                             <div class="form-group row">
@@ -69,9 +74,10 @@
                                 <div class="col-sm-12">
                                     <label for="productQuantity" class=" text-end control-label col-form-label">Enter
                                         product Quantity</label>
-                                    <input type="number" class="form-control" id="productQuantity"
-                                        name="productQuantity" placeholder="" />
+                                    <input type="number" class="form-control require" id="productQuantity"
+                                        name="productQuantity" placeholder="" max="1000" />
                                 </div>
+                                <span class="req" style="color:red"></span>
                             </div>
 
                             <div class="form-group row">
@@ -79,9 +85,10 @@
                                 <div class="col-sm-12">
                                     <label for="productPrice" class=" text-end control-label col-form-label">Product
                                         Price Per Unit/Kg </label>
-                                    <input type="number" class="form-control" id="productPrice" name="productPrice"
-                                        placeholder="0.00" />
+                                    <input type="number" class="form-control require" id="productPrice"
+                                        name="productPrice" placeholder="0.00" />
                                 </div>
+                                <span class="req" style="color:red"></span>
                             </div>
 
                             <div class="form-group row">
@@ -89,8 +96,9 @@
                                 <div class="col-sm-12">
                                     <label for="cono1" class=" text-end control-label col-form-label">Product
                                         Description</label>
-                                    <textarea class="form-control" id="productDescription" name="productDescription"></textarea>
+                                    <textarea class="form-control require" id="productDescription" name="productDescription"></textarea>
                                 </div>
+                                <span class="req" style="color:red"></span>
                             </div>
                             <div class="border-top">
 
@@ -117,15 +125,62 @@
     }
 
     $("#addProduct").on("click", function() {
-        var data = $("#productStore").serialize();
-        // data=JSON.stringify(data);
-        console.log(data);
 
-        // toastr.success("Your New Product added","Insertion Sucessfull!");
+        var check = 0;
+
+        $(".require").each(function(index, value) {
+
+            console.log($(this).val());
+
+            if ($(this).val() == "") {
+
+                $(this).css("border", "1px solid red");
+
+                // $('.req').html("*This filed is required !");
+
+                check = 1;
+
+            } else {
+                $(this).css("border", "1px solid gray");
+                // $(".req").html("");
+            }
+
+        });
+
+        // check for product quantity 
+        var qt = $("#productQuantity").val();
+        if (!isPositiveNumber(qt)) {
+            check = 1;
+            $("#productQuantity").css("border", "1px solid red");
+        } else {
+            $("#productQuantity").css("border", "1px solid gray");
+
+        }
+
+        // check for product product price
+
+        var qt = $("#productPrice").val();
+        if (!isPositiveNumber(qt)) {
+            check = 1;
+            $("#productPrice").css("border", "1px solid red");
+        } else {
+            $("#productPrice").css("border", "1px solid gray");
+
+        }
+
+        // true condtion
+        if (check == 0) {
+
+            var data = $("#productStore").serialize();
+            // data=JSON.stringify(data);
+            console.log(data);
+
+            // toastr.success("Your New Product added","Insertion Sucessfull!");
 
 
-        $("#productModelClose").click();
-        ajax("/productStore", data, "result", "post", productrefresh);
-
+            toastr.success("Product Added Successfully !");
+            $("#productModelClose").click();
+            ajax("/productStore", data, "result", "post", productrefresh);
+        }
     });
 </script>

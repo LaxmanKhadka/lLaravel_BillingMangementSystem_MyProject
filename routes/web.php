@@ -39,6 +39,7 @@ Route::post('/productDeleted', [App\Http\Controllers\DashboardController::class,
 Route::get('/createNewInvoice', [App\Http\Controllers\DashboardController::class, 'createNewInvoice'])->name('createNewInvoice');
 // Route::get('/createOrder', [App\Http\Controllers\DashboardController::class, 'createorder'])->name('createOrder');
 Route::get('/multiOrder', [App\Http\Controllers\DashboardController::class, 'multiorder'])->name('multiOrder');
+Route::post('/orderDeleted', [App\Http\Controllers\DashboardController::class, 'orderdeleted'])->name('orderDeleted');
 
 Route::get('/productCategory', [App\Http\Controllers\DashboardController::class, 'productcategory'])->name('productCategory');
 Route::post('/orderStore', [App\Http\Controllers\DashboardController::class, 'orderstore'])->name('orderStore');

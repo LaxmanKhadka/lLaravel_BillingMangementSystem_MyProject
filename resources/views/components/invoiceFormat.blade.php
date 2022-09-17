@@ -14,7 +14,7 @@
                             <div class="pull-left">
                                 <address>
                                     <h3>
-                                        &nbsp;<b class="text-danger">Alive Sanitary Pvt.Ltd</b>
+                                        &nbsp;<b class="text-danger">Alive Sanitary Pvt Ltd</b>
                                     </h3>
                                     <p class="text-muted ms-1">
                                         Koteshwor-32, <br />
@@ -59,14 +59,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="text-center">{{ $o->id }}</td>
-                                            <td>{{ $o->productName }}</td>
-                                            <td class="text-end">{{ $o->productQuantity }}</td>
-                                            <td class="text-end">{{ number_format($o->productPrice, 2) }}</td>
-                                            <td class="text-end">{{ number_format($o->subtotalAmount, 2) }}</td>
-                                        </tr>
-
+                                        @foreach ($o->products as $orderProduct)
+                                            <tr>
+                                                <td class="text-center">{{ $loop->iteration }}</td>
+                                                <td>{{ $orderProduct->productName }}</td>
+                                                <td class="text-end">{{ $orderProduct->pivot->productQuantity }}</td>
+                                                <td class="text-end">
+                                                    {{ number_format($orderProduct->productPrice, 2) }}</td>
+                                                <td class="text-end">
+                                                    {{ number_format($orderProduct->pivot->totalAmount, 2) }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -115,6 +118,6 @@
         //     id: v
         // };
         // let p = ajax("/invoiceDetails", data, "po", "get")
-        window.print("/invoiceDetails");
+        window.open("/invoiceDetails?id=" + $(this).attr('data-id'));
     });
 </script>

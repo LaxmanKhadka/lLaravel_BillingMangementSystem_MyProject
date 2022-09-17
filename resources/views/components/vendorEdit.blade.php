@@ -128,7 +128,7 @@
 
         var check = 0;
 
-        $(".require").each(function(index, value) {
+        $(" #vendorEdit .require").each(function(index, value) {
             console.log($(this).val());
 
             if ($(this).val() == "") {
@@ -145,28 +145,28 @@
         });
 
         // check =0 for email
-        var v = $("#email").val();
+        // var v = $("#email").val();
 
-        if (!validateEmail(v)) {
-            check = 1;
-            $("#email").css("border", "1px solid red");
-        } else {
-            $("#email").css("border", "1px solid gray");
+        // if (!validateEmail(v)) {
+        //     check = 1;
+        //     $("#email").css("border", "1px solid red");
+        // } else {
+        //     $("#email").css("border", "1px solid gray");
 
-        }
-        // check=0 for phone
-        var v = $("#phone").val();
+        // }
+        // // check=0 for phone
+        // var v = $("#phone").val();
 
-        if (!validatePhone(v)) {
-            check = 1;
-            $("#phone").css("border", "1px solid red");
-        } else {
-            $("#phone").css("border", "1px solid gray");
+        // if (!validatePhone(v)) {
+        //     check = 1;
+        //     $("#phone").css("border", "1px solid red");
+        // } else {
+        //     $("#phone").css("border", "1px solid gray");
 
-        }
+        // }
 
-        // option validation
-        //      
+        // // option validation
+        // //      
 
 
         if (check == 0) {
@@ -176,9 +176,9 @@
             console.log(data);
 
 
-            $("#productModelClose").click();
+            $("#productModelClose1").click();
 
-            alert("New Vendor Edited Sucessfully !");
+            toastr.success("Vendor edited successfully !");
 
             ajax("/vendorEdited", data, "result", "post", productrefresh);
 

@@ -73,11 +73,11 @@
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config"
                                                         rowspan="1" colspan="1"
                                                         aria-label="Start date: activate to sort column ascending"
-                                                        style="width: 24.9219px;font-weight:bold;">Address 1</th>
+                                                        style="width: 34.9219px;font-weight:bold;">Address 1</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config"
                                                         rowspan="1" colspan="1"
                                                         aria-label="Start date: activate to sort column ascending"
-                                                        style="width: 60.9219px;font-weight:bold;">Address 2</th>
+                                                        style="width: 24.9219px;font-weight:bold;">Address 2</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config"
                                                         rowspan="1" colspan="1"
                                                         aria-label="Start date: activate to sort column ascending"
@@ -93,7 +93,7 @@
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config"
                                                         rowspan="1" colspan="1"
                                                         aria-label="Salary: activate to sort column ascending"
-                                                        style="width: 76.0781px;font-weight:bold;"> Actions</th>
+                                                        style="width: 90.0781px;font-weight:bold;"> Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -189,110 +189,110 @@
         <!-- End Right sidebar -->
         <!-- ============================================================== -->
     </div>
+</div>
+{{-- Add Customer model for --}}
+<div class="modal" id="myModal">
+    <div class="modal-dialog" style="width:600px;">
+        <div class="modal-content" style="width:600px;">
 
-    {{-- Add Customer model for --}}
-    <div class="modal" id="myModal">
-        <div class="modal-dialog" style="width:600px;">
-            <div class="modal-content" style="width:600px;">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Add Customer</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body" id="mm">
-                    Modal body..
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                        id="productModelClose">Close</button>
-                </div>
-
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Add Customer</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
             </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="mm">
+                Modal body..
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    id="productModelClose">Close</button>
+            </div>
+
         </div>
     </div>
-    {{-- Customer Edit --}}
-    <div class="modal" id="myModal1">
-        <div class="modal-dialog" style="width:600px;">
-            <div class="modal-content" style="width:600px;">
+</div>
+{{-- Customer Edit --}}
+<div class="modal" id="myModal1">
+    <div class="modal-dialog" style="width:600px;">
+        <div class="modal-content" style="width:600px;">
 
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Customer Edit</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body" id="mm1">
-                    Modal body..
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                        id="productModelClose">Close</button>
-                </div>
-
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Customer Edit</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
             </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="mm1">
+                Modal body..
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    id="productModelClose1">Close</button>
+            </div>
+
         </div>
     </div>
-    {{-- Customer Delete --}}
-    <div class="modal" id="myModal2">
-        <div class="modal-dialog" style="width:600px;">
-            <div class="modal-content" style="width:600px;">
+</div>
+{{-- Customer Delete --}}
+<div class="modal" id="myModal2">
+    <div class="modal-dialog" style="width:600px;">
+        <div class="modal-content" style="width:600px;">
 
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Customer Edit</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body" id="mm2">
-                    Modal body..
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                        id="productModelClose">Close</button>
-                </div>
-
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Customer Delete</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
             </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="mm2">
+                Modal body..
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    id="productModelClose2">Close</button>
+            </div>
+
         </div>
     </div>
-    <script>
-        // customer Edited
-        $(".customerEdit").on("click", function() {
+</div>
+<script>
+    // customer Edited
+    $(".customerEdit").on("click", function() {
 
-            var v = $(this).attr("data-id");
-            var data = {
-                id: v
-            };
+        var v = $(this).attr("data-id");
+        var data = {
+            id: v
+        };
 
-            ajax("/customerEdit", data, "mm1", "get");
+        ajax("/customerEdit", data, "mm1", "get");
 
-            $("#myModal1").modal("show");
-        });
+        $("#myModal1").modal("show");
+    });
 
-        // customer Deleted
-        $(".customerDelete").on("click", function() {
+    // customer Deleted
+    $(".customerDelete").on("click", function() {
 
-            var v = $(this).attr("data-id");
-            var data = {
-                id: v
-            };
+        var v = $(this).attr("data-id");
+        var data = {
+            id: v
+        };
 
-            ajax("/customerDelete", data, "mm2", "get");
+        ajax("/customerDelete", data, "mm2", "get");
 
-            $("#myModal2").modal("show");
-        });
+        $("#myModal2").modal("show");
+    });
 
-        // details functions
-        var data = {};
-        ajax("/addNewCustomer", data, "mm", "get");
-    </script>
+    // details functions
+    var data = {};
+    ajax("/addNewCustomer", data, "mm", "get");
+</script>

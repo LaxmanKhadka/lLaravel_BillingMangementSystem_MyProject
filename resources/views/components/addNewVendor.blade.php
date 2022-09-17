@@ -21,7 +21,7 @@
                                 <div class="col-sm-12">
                                     <label for="name" class="text-end control-label col-form-label">Name
                                     </label>
-                                    <input type="text" class="form-control require" id="Name" name="Name"
+                                    <input type="text" class="form-control require" id="name" name="Name"
                                         placeholder="" />
                                 </div>
                                 <span class="req" style="color:red"></span>
@@ -168,11 +168,17 @@
             $("#phone").css("border", "1px solid gray");
 
         }
+        // check for name validation
+        var b = $("#name").val();
+        if (!nameValidate(b)) {
+            check = 1;
+            $("#name").css("border", "1px solid red");
+        } else {
+            $("#name").css("border", "1px solid gray");
+        }
 
-        // option validation
-        //      
 
-
+        // true condition
         if (check == 0) {
             var data = $("#buyerStore").serialize();
 
@@ -181,7 +187,7 @@
 
             $("#productModelClose").click();
 
-            alert("New Vendor Added Sucessfully !");
+            toastr.success("New vendor added successfully !");
 
             ajax("/buyerStore", data, "result", "post", productrefresh);
 

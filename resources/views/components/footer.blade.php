@@ -21,6 +21,8 @@
     <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
     <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+      
     <!--Wave Effects -->
     <script src="../dist/js/waves.js"></script>
     <!--Menu sidebar -->
